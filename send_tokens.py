@@ -56,7 +56,7 @@ def send_tokens( receiver_pk, tx_amount ):
     signed_txn = unsigned_txn.sign(secret_key)
 
     txid = acl.send_transaction(signed_txn)
-    txn_result = transaction.wait_for_confirmation(acl, txid)
+    txn_result = wait_for_confirmation(acl, txid)
     print("Transaction ID is: ", txid)
     print("Transaction result is: ", txn_result)
 
