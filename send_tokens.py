@@ -44,7 +44,10 @@ def send_tokens( receiver_pk, tx_amount ):
     secret_key = mnemonic.to_private_key(mymnemonic_sk)
     unsigned_txn = transaction.PaymentTxn(
         sender=sender_pk,
-        sp=params,
+        gen_hash=params.gh,
+        first_valid_round = params.first,
+        tx_fee = params.min_fee,
+        last_valid_round = params.last,
         receiver=receiver_pk,
         amt=tx_amount,
         note=b"Send tokens to test account",
